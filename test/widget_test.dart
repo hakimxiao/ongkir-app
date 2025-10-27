@@ -90,15 +90,37 @@
 
 // ignore_for_file: avoid_print, prefer_interpolation_to_compose_strings
 
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
+
+// void main() async {
+//   Uri url = Uri.parse("https://reqres.in/api/users/1");
+
+//   final response = await http.post(
+//     url,
+//     body: {"name": "Hakim", "job": "Flutter Developer"},
+//     headers: {"x-api-key": "reqres-free-v1"},
+//   );
+
+//   print(response.body);
+// }
+
+// =====================================================================================
+// PART 8 : API RAJA ONGKIR
+// =====================================================================================
+
+import "package:flutter_dotenv/flutter_dotenv.dart";
+import "package:http/http.dart" as http;
 
 void main() async {
-  Uri url = Uri.parse("https://reqres.in/api/users/1");
+  await dotenv.load(fileName: ".env");
 
-  final response = await http.post(
+  Uri url = Uri.parse(
+    'https://rajaongkir.komerce.id/api/v1/destination/province',
+  );
+
+  final response = await http.get(
     url,
-    body: {"name": "Hakim", "job": "Flutter Developer"},
-    headers: {"x-api-key": "reqres-free-v1"},
+    headers: {"key": dotenv.env["RAJA_ONGKIR_SHIPPING_COST_API"].toString()},
   );
 
   print(response.body);
