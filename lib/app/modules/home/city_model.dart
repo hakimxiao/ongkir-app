@@ -1,11 +1,11 @@
 class City {
-  num? id;
+  int? id;
   String? name;
 
   City({this.id, this.name});
 
   City.fromJson(Map<String, dynamic> json) {
-    id = json['id'] as num?;
+    id = json['id'];
     name = json['name'];
   }
 
