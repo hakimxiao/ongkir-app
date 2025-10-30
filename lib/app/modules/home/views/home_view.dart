@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import 'package:ongkir/app/modules/home/views/widgets/city_dropdown.dart';
 import 'package:ongkir/app/modules/home/views/widgets/province_dropdown.dart';
+import 'package:ongkir/app/modules/home/views/widgets/berat_barang.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -35,6 +36,7 @@ class HomeView extends GetView<HomeController> {
                     tipe: "tujuan",
                   ),
           ),
+          BeratBarang(),
         ],
       ),
     );
