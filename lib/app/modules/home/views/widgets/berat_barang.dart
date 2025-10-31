@@ -11,60 +11,63 @@ class BeratBarang extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: TextField(
-            controller: controller.beratBarangC,
-            autocorrect: false,
-            keyboardType: TextInputType.numberWithOptions(decimal: true),
-            decoration: InputDecoration(
-              labelText: "Berat Barang",
-              hintText: "Berat barang",
-              border: OutlineInputBorder(),
-            ),
-            onChanged: (value) => controller.handleBeratBarang(value),
-          ),
-        ),
-        SizedBox(width: 10),
-        SizedBox(
-          width: 150,
-          height: 50,
-          child: DropdownSearch<String>(
-            items: (f, cs) => [
-              "Ton",
-              'Kwintal',
-              'Ons',
-              'Lbs',
-              'Pound',
-              'Kg',
-              'Hg',
-              'Dag',
-              'Gram',
-              'Dg',
-              'Cg',
-              'Mg',
-            ],
-            decoratorProps: DropDownDecoratorProps(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              controller: controller.beratBarangC,
+              autocorrect: false,
+              keyboardType: TextInputType.numberWithOptions(decimal: true),
               decoration: InputDecoration(
+                labelText: "Berat Barang",
+                hintText: "Berat barang",
                 border: OutlineInputBorder(),
-                labelText: "Satuan",
               ),
+              onChanged: (value) => controller.handleBeratBarang(value),
             ),
-            popupProps: PopupProps.bottomSheet(
-              searchFieldProps: TextFieldProps(
+          ),
+          SizedBox(width: 10),
+          SizedBox(
+            width: 150,
+            height: 50,
+            child: DropdownSearch<String>(
+              items: (f, cs) => [
+                "Ton",
+                'Kwintal',
+                'Ons',
+                'Lbs',
+                'Pound',
+                'Kg',
+                'Hg',
+                'Dag',
+                'Gram',
+                'Dg',
+                'Cg',
+                'Mg',
+              ],
+              decoratorProps: DropDownDecoratorProps(
                 decoration: InputDecoration(
-                  hintText: "Cari satuan berat",
                   border: OutlineInputBorder(),
+                  labelText: "Satuan",
                 ),
               ),
-              showSelectedItems: true,
-              showSearchBox: true,
+              popupProps: PopupProps.bottomSheet(
+                searchFieldProps: TextFieldProps(
+                  decoration: InputDecoration(
+                    hintText: "Cari satuan berat",
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                showSelectedItems: true,
+                showSearchBox: true,
+              ),
+              onChanged: (value) => controller.handleSatuan(value!),
             ),
-            onChanged: (value) => controller.handleSatuan(value!),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -67,6 +67,7 @@ class ProvinceDropdown extends GetView<HomeController> {
               controller.hiddenDestinationCity.value = false;
               controller.provDestianationId.value = int.parse(prov.id!);
             }
+            controller.showButton();
           } else {
             if (tipe == "asal") {
               controller.hiddenOriginCity.value = false;

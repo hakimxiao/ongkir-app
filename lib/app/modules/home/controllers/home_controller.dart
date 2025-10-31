@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unrelated_type_equality_checks
 
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -10,11 +10,24 @@ class HomeController extends GetxController {
   var hiddenDestinationCity = true.obs;
   var provDestianationId = 0.obs;
   var destinationCityId = 0.obs;
+  var hiddenButton = true.obs;
+  var kurir = "".obs;
 
   double beratBarang = 0.0;
   String satuan = 'Gram';
 
   late TextEditingController beratBarangC;
+
+  void showButton() {
+    if (originCityId != 0 &&
+        destinationCityId != 0 &&
+        beratBarang > 0 &&
+        kurir != "") {
+      hiddenButton.value = false;
+    } else {
+      hiddenButton.value = true;
+    }
+  }
 
   void handleBeratBarang(String value) {
     beratBarang = double.tryParse(value) ?? 0.0;
@@ -75,6 +88,7 @@ class HomeController extends GetxController {
     }
 
     print('$beratBarang Gram');
+    showButton();
   }
 
   void handleSatuan(String value) {
@@ -137,6 +151,7 @@ class HomeController extends GetxController {
     satuan = value;
 
     print('$beratBarang Gram');
+    showButton();
   }
 
   @override

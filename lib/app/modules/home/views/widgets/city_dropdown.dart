@@ -66,18 +66,15 @@ class CityDropdown extends GetView<HomeController> {
             } else {
               controller.destinationCityId.value = city.id!;
             }
+            controller.showButton();
           } else {
             if (tipe == "asal") {
               print("Tidak memilih kota / kabupaten asal apapun");
+              controller.originCityId.value = 0;
             } else {
               print("Tidak memilih kota / kabupaten asal apapun");
+              controller.destinationCityId.value = 0;
             }
-          }
-
-          if (city != null) {
-            print(city.name);
-          } else {
-            print("Tidak memilih kota / kabupaten asal apapun");
           }
         },
         popupProps: PopupPropsMultiSelection.menu(
