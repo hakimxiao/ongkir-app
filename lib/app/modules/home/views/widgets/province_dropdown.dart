@@ -67,7 +67,6 @@ class ProvinceDropdown extends GetView<HomeController> {
               controller.hiddenDestinationCity.value = false;
               controller.provDestianationId.value = int.parse(prov.id!);
             }
-            controller.showButton();
           } else {
             if (tipe == "asal") {
               controller.hiddenOriginCity.value = false;
@@ -77,6 +76,7 @@ class ProvinceDropdown extends GetView<HomeController> {
               controller.provDestianationId.value = 0;
             }
           }
+          controller.showButton();
         },
         popupProps: PopupPropsMultiSelection.menu(
           showSearchBox: true,

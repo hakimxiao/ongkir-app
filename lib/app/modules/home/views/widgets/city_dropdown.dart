@@ -66,7 +66,6 @@ class CityDropdown extends GetView<HomeController> {
             } else {
               controller.destinationCityId.value = city.id!;
             }
-            controller.showButton();
           } else {
             if (tipe == "asal") {
               print("Tidak memilih kota / kabupaten asal apapun");
@@ -76,6 +75,7 @@ class CityDropdown extends GetView<HomeController> {
               controller.destinationCityId.value = 0;
             }
           }
+          controller.showButton();
         },
         popupProps: PopupPropsMultiSelection.menu(
           showSearchBox: true,

@@ -1,0 +1,8 @@
+{
+  "name": "Jalur Nugraha Ekakurir (JNE)",
+  "code": "jne",
+  "service": "CTC",
+  "description": "JNE City Courier",
+  "cost": 18000,
+  "etd": "1 day"
+}

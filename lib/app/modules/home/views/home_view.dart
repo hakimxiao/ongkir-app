@@ -77,6 +77,7 @@ class HomeView extends GetView<HomeController> {
               onChanged: (value) {
                 if (value != null) {
                   controller.kurir.value = value["code"]!;
+                  controller.kurirName.value = value["name"]!;
                   controller.showButton();
                 } else {
                   controller.hiddenButton.value = true;
@@ -89,7 +90,7 @@ class HomeView extends GetView<HomeController> {
             () => controller.hiddenButton.isTrue
                 ? SizedBox()
                 : ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => controller.ongkosKirim(),
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 20),
                     ),

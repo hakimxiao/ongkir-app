@@ -115,12 +115,21 @@ void main() async {
   await dotenv.load(fileName: ".env");
 
   Uri url = Uri.parse(
-    'https://rajaongkir.komerce.id/api/v1/destination/province',
+    'https://rajaongkir.komerce.id/api/v1/calculate/district/domestic-cost',
   );
 
-  final response = await http.get(
+  final response = await http.post(
     url,
-    headers: {"key": dotenv.env["RAJA_ONGKIR_SHIPPING_COST_API"].toString()},
+    headers: {
+      "key": dotenv.env["RAJA_ONGKIR_SHIPPING_COST_API"].toString(),
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: {
+      "origin": "501",
+      "destination": "114",
+      "weight": "1700",
+      "courier": "jne",
+    },
   );
 
   print(response.body);
