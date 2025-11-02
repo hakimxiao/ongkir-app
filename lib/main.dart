@@ -11,7 +11,7 @@ void main() async {
 
   runApp(
     GetMaterialApp(
-      title: "Application",
+      title: "Check Ongkir Yok",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),
